@@ -14,7 +14,7 @@
 
 	<?php
 	$continents = [
-	    'Africa' => ['Testudines', 'Crocodylus niloticus'],
+	    'Africa' => ['Testudines', 'Crocodylus niloticus', 'test'],
 	    'Europe' => ['Meles meles', 'Mesocricetus newtoni'],
 	    'Asia' => ['Ursus arctos', 'Elephas maximus'],
 	    'North America' => ['Buteo jamaicensis', 'Lynx rufus'],
@@ -29,10 +29,17 @@
 	    $continent[] = $continents_key;
 	    echo "<h3>$continents_key</h3>";
 	    foreach ($animals as $animal)
-	    {
-	    echo ' ' . $animal;
+	    { 
+	    	if($animal !== end($animals)) // все кроме последнего с запятой
+		    {
+		    	echo $animal . ', ';
+		    } else 
+		    {
+		    	echo $animal;
+		    }
 		}
-	    foreach ($animals as $two)
+
+	    foreach ($animals as $two) // подготовка для двойных названий
 	    {
 	        $two_words = explode(" ", $two);
 	        if (count($two_words) == 2) 
