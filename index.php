@@ -1,54 +1,67 @@
-<!DOCTYPE>
-<html lang="ru">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Константин ДЗ-2</title>
-    <meta charset="utf-8">
-    <style>
-        body {
-            font-family: sans-serif;  
-        }
-        
-        dl {
-            display: table-row;
-        }
-        
-        dt, dd {
-            display: table-cell;
-            padding: 5px 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Домашнее задание к лекции 1.3 «Строки, массивы и объекты»</title>
+  <style>
+  	* { padding: 0; margin: 0; }
+  	h2 { text-decoration:underline; margin: 1em 0 0 0; }
+  	body { padding-left: 1em; }
+  	hr { margin-top: 1em; }
+  </style>
 </head>
-
 <body>
-    <?php
-    $FName = 'Константин';
-    $SName = 'Пронин';
-    $userAge = '27';
-    $email = 'troyandex@gmail.com';
-    $sity = 'Izhevsk';
-    $about = 'краткий текст о себе';
-    ?>
-    
-    <h1>Страница пользователя <?= $FName ?></h1>
-    <dl>
-        <dt>Имя</dt>
-        <dd><?= $SName ?></dd>
-    </dl>
-    <dl>
-        <dt>Возраст</dt>
-        <dd><?= $userAge ?></dd>
-    </dl>
-    <dl>
-        <dt>Адрес электронной почты</dt>
-        <dd><a href="mailto:<?= $email ?>"><?= $email ?></a></dd>
-    </dl>
-    <dl>
-        <dt>Город</dt>
-        <dd><?= $sity ?></dd>
-    </dl>
-    <dl>
-        <dt>О себе</dt>
-        <dd><?= $about ?></dd>
-    </dl>
+
+	<?php
+	$continents = [
+	    'Africa' => ['Testudines', 'Crocodylus niloticus'],
+	    'Europe' => ['Meles meles', 'Mesocricetus newtoni'],
+	    'Asia' => ['Ursus arctos', 'Elephas maximus'],
+	    'North America' => ['Buteo jamaicensis', 'Lynx rufus'],
+	    'South America' => ['Hydrochoerus hydrochaeris', 'Ateles'],
+	    'Australia' => ['Macropus', 'Ornithorhynchus anatinus'],
+	    'Antarctica' => ['Spheniscidae', 'Lobodon carcinophagus'],
+	];
+
+	echo '<h2>animals array</h2>';
+	foreach ($continents as $continents_key => $animals)
+	{
+	    $continent[] = $continents_key;
+	    echo "<h3>$continents_key</h3>";
+	    foreach ($animals as $animal)
+	    {
+	    echo ' ' . $animal;
+		}
+	    foreach ($animals as $two)
+	    {
+	        $two_words = explode(" ", $two);
+	        if (count($two_words) == 2) 
+	        {
+	            $double_name[] = $two;
+	            $first_world[] = $two_words[0];
+	            $second_word[] = $two_words[1];
+	        }
+	    }
+	}
+
+	echo '<hr>';
+	echo '<h2>Two words array</h2>';
+	foreach ($double_name as $item) 
+	{
+	    echo "$item<br>";
+	}
+
+	echo '<hr>';
+	shuffle($second_word);
+	echo '<h2>Shuffle names</h2>';
+	foreach ($second_word as $last)
+	{
+	    $title = array_shift($continent);
+	    $first = array_shift($first_world);
+	    echo "<h3>$title</h3>";
+	    echo $first . ' ' . $last . '<br>';
+	}
+	?>
+
 </body>
 </html>
