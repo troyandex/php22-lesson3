@@ -8,9 +8,9 @@
 	    'Australia' => ['Macropus', 'Ornithorhynchus anatinus'],
 	    'Antarctica' => ['Spheniscidae', 'Lobodon carcinophagus'],
 	];
-	echo '<h2>animals array</h2>';
+/*	echo '<h2>animals array</h2>';
 	echo "<pre>";
-	print_r ($continents);
+	print_r ($continents); выводит первоначальный масив */
 
 	foreach ($continents as $continents_key => $animals)
 	{
